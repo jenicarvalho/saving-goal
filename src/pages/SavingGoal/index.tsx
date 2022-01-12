@@ -17,19 +17,13 @@ import DateField from '../../components/Inputs/DateField';
 function SavingGoal(): JSX.Element {
   const [amount, setAmount] = useState(0);
   const [reachDate, setReachDate] = useState<Date>(addMonths(new Date(), 1));
-  const handleAmountChange = useCallback(
-    (amount): void => {
-      setAmount(amount);
-    },
-    [amount]
-  );
+  const handleAmountChange = useCallback((amount): void => {
+    setAmount(amount);
+  }, []);
 
-  const handleReachDateChange = useCallback(
-    (reachDate): void => {
-      setReachDate(reachDate);
-    },
-    [reachDate]
-  );
+  const handleReachDateChange = useCallback((reachDate): void => {
+    setReachDate(reachDate);
+  }, []);
 
   const months = differenceInMonths(reachDate, new Date());
   const saving = Number(amount) / Number(months + 1);
